@@ -17,18 +17,17 @@ public class LearningService {
 
     private Random random = new Random();
 
-    // Long-Term Potentiation
-    public void ltpLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, ResultsData resultsData) {
+    public void learn(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, ResultsData resultsData,
+                      boolean isLtp) {
 
         int steps = 0;
         Set<OutputNode> outputNodesActivated;
         while (!((outputNodesActivated = graph.inputPatternExceedsThreshold(ap, ip)).size() >= ip.getActivatedNodeSize())) {
-            int index = random.nextInt(ap.size());
-            SetUniqueList<Edge> outputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
-                    .filter(e -> e.getInputNode().getId() == ap.get(index))
-                    .collect(Collectors.toList()));
-            Edge randomEdgeFromRandomInput = outputEdgesForRandomIndex.get(random.nextInt(outputEdgesForRandomIndex.size()));
-            randomEdgeFromRandomInput.setWeight(randomEdgeFromRandomInput.getWeight() + ((1 - randomEdgeFromRandomInput.getWeight()) / 2));
+            if (isLtp) {
+                ltplearning(graph, ap, ip);
+            } else {
+                misLearning(graph, ap, ip);
+            }
             steps++;
         }
 
@@ -43,37 +42,29 @@ public class LearningService {
         graph.resetEdgeWeights();
     }
 
-    // Multi-dendritic innervated spines
-    public void misLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, ResultsData resultsData) {
+    private void ltplearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip) {
+        int index = random.nextInt(ap.size());
+        SetUniqueList<Edge> outputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
+                .filter(e -> e.getInputNode().getId() == ap.get(index))
+                .collect(Collectors.toList()));
+        Edge randomEdgeFromRandomInput = outputEdgesForRandomIndex.get(random.nextInt(outputEdgesForRandomIndex.size()));
+        randomEdgeFromRandomInput.setWeight(randomEdgeFromRandomInput.getWeight() + ((1 - randomEdgeFromRandomInput.getWeight()) / 2));
+    }
 
-        int steps = 0;
-        Set<OutputNode> outputNodesActivated;
-        while (!((outputNodesActivated = graph.inputPatternExceedsThreshold(ap, ip)).size() >= ip.getActivatedNodeSize())) {
-            int index = random.nextInt(ap.size());
-            int index2 = random.nextInt(ap.size());
-            while (index == index2) index2 = random.nextInt(ap.size());
-            final int index2Final = index2;
+    private void misLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip) {
+        int index = random.nextInt(ap.size());
+        int index2 = random.nextInt(ap.size());
+        while (index == index2) index2 = random.nextInt(ap.size());
+        final int index2Final = index2;
 
-            SetUniqueList<Edge> inputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
-                    .filter(e -> e.getInputNode().getId() == ap.get(index))
-                    .collect(Collectors.toList()));
-            SetUniqueList<Edge> inputEdgesForRandomIndex2 = SetUniqueList.setUniqueList(graph.getEdges().stream()
-                    .filter(e -> e.getInputNode().getId() == ap.get(index2Final))
-                    .collect(Collectors.toList()));
-            Edge randomEdgeFromRandomInput = inputEdgesForRandomIndex.get(random.nextInt(inputEdgesForRandomIndex.size()));
-            Edge randomEdgeFromRandomInput2 = inputEdgesForRandomIndex2.get(random.nextInt(inputEdgesForRandomIndex2.size()));
-            randomEdgeFromRandomInput.setWeight(randomEdgeFromRandomInput.getWeight() + randomEdgeFromRandomInput2.getWeight());
-            steps++;
-            System.out.println("Finished step" + steps);
-        }
-
-        // Update the step count
-        int count = resultsData.getLearningStepCount().getOrDefault(steps, 0) + 1;
-        resultsData.getLearningStepCount().put(steps, count);
-
-        // Add the set of output nodes.
-        resultsData.addOutputNodeSet(outputNodesActivated);
-
-        graph.resetEdgeWeights();
+        SetUniqueList<Edge> inputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
+                .filter(e -> e.getInputNode().getId() == ap.get(index))
+                .collect(Collectors.toList()));
+        SetUniqueList<Edge> inputEdgesForRandomIndex2 = SetUniqueList.setUniqueList(graph.getEdges().stream()
+                .filter(e -> e.getInputNode().getId() == ap.get(index2Final))
+                .collect(Collectors.toList()));
+        Edge randomEdgeFromRandomInput = inputEdgesForRandomIndex.get(random.nextInt(inputEdgesForRandomIndex.size()));
+        Edge randomEdgeFromRandomInput2 = inputEdgesForRandomIndex2.get(random.nextInt(inputEdgesForRandomIndex2.size()));
+        randomEdgeFromRandomInput.setWeight(randomEdgeFromRandomInput.getWeight() + randomEdgeFromRandomInput2.getWeight());
     }
 }

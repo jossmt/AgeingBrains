@@ -88,12 +88,7 @@ public class GraphService {
 
         ResultsData resultsData = new ResultsData();
         activationPatterns.forEach(ap -> {
-
-            if (isLtp) {
-                learningService.ltpLearning(graph, ap, initialParameters, resultsData);
-            } else {
-                learningService.misLearning(graph, ap, initialParameters, resultsData);
-            }
+            learningService.learn(graph, ap, initialParameters, resultsData, isLtp);
         });
 
         this.resultsData = resultsData;
