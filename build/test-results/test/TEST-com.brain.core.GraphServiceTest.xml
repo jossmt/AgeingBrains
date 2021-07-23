@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.brain.core.GraphServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-22T19:10:54" hostname="Josss-MacBook-Pro.local" time="197.904">
+  <properties/>
+  <testcase name="learningYoungTest" classname="com.brain.core.GraphServiceTest" time="197.904"/>
+  <system-out><![CDATA[Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step4
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step4
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step4
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+Finished step1
+Finished step2
+Finished step3
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

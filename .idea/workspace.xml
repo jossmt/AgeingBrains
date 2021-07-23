@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4dc09c30-b866-43d7-ae67-49ecd855f016" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1v7SOJ2qT3ZGSF4gJvthAnpU5Gr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="LombokPluginEnabledInProject" value="true" />
+    <property name="LombokPluginIS_ANNOTATION_PROCESSING_CHECK_Enabled" value="true" />
+    <property name="LombokPluginIS_BUILDER_Enabled" value="true" />
+    <property name="LombokPluginIS_CONSTRUCTOR_Enabled" value="true" />
+    <property name="LombokPluginIS_DELEGATE_Enabled" value="true" />
+    <property name="LombokPluginIS_LOG_Enabled" value="true" />
+    <property name="LombokPluginIS_LOMBOK_VERSION_CHECK_Enabled" value="false" />
+    <property name="LombokPluginIS_MISSING_LOMBOK_CHECK_Enabled" value="false" />
+    <property name="LombokPluginIS_VAL_Enabled" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BrainUi/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/BrainUi/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.brain.core.rest.model" />
+      <recent name="com.brain.core.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/BrainUi/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BrainApplication">
+    <configuration name="GraphServiceTest.getAllPatterns" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.brain.core.GraphServiceTest.getAllPatterns&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GraphServiceTest.initialiseGraph" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.brain.core.GraphServiceTest.initialiseGraph&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GraphServiceTest.learningYoungTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.brain.core.GraphServiceTest.learningYoungTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WeightServiceTest.testNormalWeightDistribution" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.brain.core.WeightServiceTest.testNormalWeightDistribution&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WeightServiceTest.testRandomWeightDistribution" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.brain.core.WeightServiceTest.testRandomWeightDistribution&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BrainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="BrainProject.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.brain.core.BrainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.GraphServiceTest.learningYoungTest" />
+        <item itemvalue="Gradle.WeightServiceTest.testNormalWeightDistribution" />
+        <item itemvalue="Gradle.WeightServiceTest.testRandomWeightDistribution" />
+        <item itemvalue="Gradle.GraphServiceTest.getAllPatterns" />
+        <item itemvalue="Gradle.GraphServiceTest.initialiseGraph" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4dc09c30-b866-43d7-ae67-49ecd855f016" name="Default Changelist" comment="" />
+      <created>1625911600581</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625911600581</updated>
+      <workItem from="1625911603750" duration="1088000" />
+      <workItem from="1625912717169" duration="48000" />
+      <workItem from="1625912779187" duration="31343000" />
+      <workItem from="1626285740381" duration="599000" />
+      <workItem from="1626601746886" duration="118000" />
+      <workItem from="1626948634708" duration="5148000" />
+      <workItem from="1626969667712" duration="3000" />
+      <workItem from="1626975534984" duration="5868000" />
+      <workItem from="1626981647908" duration="1597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="458" y="185" key="#Project_Structure" timestamp="1625913885869">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="458" y="185" key="#Project_Structure/0.23.1792.1040@0.23.1792.1040" timestamp="1625913885868" />
+    <state x="322" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625912726124">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="322" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1040@0.23.1792.1040" timestamp="1625912726124" />
+    <state x="671" y="242" key="#com.intellij.ide.util.MemberChooser" timestamp="1626978094759">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="671" y="242" key="#com.intellij.ide.util.MemberChooser/0.23.1792.1040@0.23.1792.1040" timestamp="1626978094759" />
+    <state x="619" y="383" width="477" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1625915189082">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="619" y="383" width="477" height="273" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.23.1792.1040@0.23.1792.1040" timestamp="1625915189082" />
+    <state x="372" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1626977002806">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="-2029" y="-183" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626092950373" />
+    <state x="372" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@0.23.1792.1040" timestamp="1626076298037" />
+    <state x="372" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1792.1040@0.23.1792.1040" timestamp="1626977002806" />
+    <state width="1524" height="292" key="GridCell.Tab.0.bottom" timestamp="1627034960464">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.0.bottom/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270760" />
+    <state width="1319" height="231" key="GridCell.Tab.0.bottom/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240079" />
+    <state width="1524" height="292" key="GridCell.Tab.0.bottom/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960464" />
+    <state width="1524" height="292" key="GridCell.Tab.0.center" timestamp="1627034960463">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.0.center/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270760" />
+    <state width="1319" height="231" key="GridCell.Tab.0.center/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240078" />
+    <state width="1524" height="292" key="GridCell.Tab.0.center/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960463" />
+    <state width="1524" height="292" key="GridCell.Tab.0.left" timestamp="1627034960463">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.0.left/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270759" />
+    <state width="1319" height="231" key="GridCell.Tab.0.left/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240077" />
+    <state width="1524" height="292" key="GridCell.Tab.0.left/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960463" />
+    <state width="1524" height="292" key="GridCell.Tab.0.right" timestamp="1627034960463">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.0.right/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270760" />
+    <state width="1319" height="231" key="GridCell.Tab.0.right/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240078" />
+    <state width="1524" height="292" key="GridCell.Tab.0.right/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960463" />
+    <state width="1524" height="292" key="GridCell.Tab.1.bottom" timestamp="1627034960465">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.1.bottom/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270761" />
+    <state width="1319" height="231" key="GridCell.Tab.1.bottom/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240080" />
+    <state width="1524" height="292" key="GridCell.Tab.1.bottom/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960465" />
+    <state width="1524" height="292" key="GridCell.Tab.1.center" timestamp="1627034960464">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.1.center/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270761" />
+    <state width="1319" height="231" key="GridCell.Tab.1.center/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240079" />
+    <state width="1524" height="292" key="GridCell.Tab.1.center/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960464" />
+    <state width="1524" height="292" key="GridCell.Tab.1.left" timestamp="1627034960464">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.1.left/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270761" />
+    <state width="1319" height="231" key="GridCell.Tab.1.left/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240079" />
+    <state width="1524" height="292" key="GridCell.Tab.1.left/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960464" />
+    <state width="1524" height="292" key="GridCell.Tab.1.right" timestamp="1627034960465">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.1.right/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270761" />
+    <state width="1319" height="231" key="GridCell.Tab.1.right/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1626186240079" />
+    <state width="1524" height="292" key="GridCell.Tab.1.right/0.23.1792.1040@0.23.1792.1040" timestamp="1627034960465" />
+    <state width="1319" height="219" key="GridCell.Tab.2.bottom" timestamp="1626950811073">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.2.bottom/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270763" />
+    <state width="1319" height="219" key="GridCell.Tab.2.bottom/0.23.1792.1040@0.23.1792.1040" timestamp="1626950811073" />
+    <state width="1319" height="219" key="GridCell.Tab.2.center" timestamp="1626950811072">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.2.center/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270762" />
+    <state width="1319" height="219" key="GridCell.Tab.2.center/0.23.1792.1040@0.23.1792.1040" timestamp="1626950811072" />
+    <state width="1319" height="219" key="GridCell.Tab.2.left" timestamp="1626950811072">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.2.left/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270762" />
+    <state width="1319" height="219" key="GridCell.Tab.2.left/0.23.1792.1040@0.23.1792.1040" timestamp="1626950811072" />
+    <state width="1319" height="219" key="GridCell.Tab.2.right" timestamp="1626950811073">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state width="1524" height="278" key="GridCell.Tab.2.right/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093270762" />
+    <state width="1319" height="219" key="GridCell.Tab.2.right/0.23.1792.1040@0.23.1792.1040" timestamp="1626950811073" />
+    <state x="346" y="101" key="SettingsEditor" timestamp="1625912764556">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="346" y="101" key="SettingsEditor/0.23.1792.1040@0.23.1792.1040" timestamp="1625912764556" />
+    <state x="506" y="352" key="com.intellij.ide.util.TipDialog" timestamp="1626981647800">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="506" y="352" key="com.intellij.ide.util.TipDialog/0.23.1792.1040@0.23.1792.1040" timestamp="1626981647800" />
+    <state x="537" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1626980424714">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="537" y="141" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1792.1040@0.23.1792.1040" timestamp="1626980424714" />
+    <state x="509" y="282" width="698" height="472" key="find.popup" timestamp="1626978057633">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="509" y="282" width="698" height="472" key="find.popup/0.23.1792.1040@0.23.1792.1040" timestamp="1626978057633" />
+    <state x="523" y="245" width="670" height="676" key="search.everywhere.popup" timestamp="1626981975402">
+      <screen x="0" y="23" width="1792" height="1040" />
+    </state>
+    <state x="-1813" y="119" width="958" height="922" key="search.everywhere.popup/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@-2560.-183.2560.1417" timestamp="1626093056711" />
+    <state x="523" y="245" width="670" height="676" key="search.everywhere.popup/-2560.-183.2560.1417/-2144.-1263.1920.1057/0.23.1792.1040@0.23.1792.1040" timestamp="1626075911666" />
+    <state x="523" y="245" width="670" height="676" key="search.everywhere.popup/0.23.1792.1040@0.23.1792.1040" timestamp="1626981975402" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/brain/core/service/LearningService.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
