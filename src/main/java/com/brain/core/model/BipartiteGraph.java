@@ -3,7 +3,10 @@ package com.brain.core.model;
 import com.brain.core.rest.model.InitialParameters;
 import org.apache.commons.collections4.list.SetUniqueList;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,12 +42,12 @@ public class BipartiteGraph {
     }
 
     public boolean inputPatternActivatesNoOutputNodes(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
-        return activeCount(inputPattern, initialParameters) == 0;
+        return outputNodesActivated(inputPattern, initialParameters).size() == 0;
     }
 
-    public Boolean inputPatternExceedsThreshold(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
+    public Set<OutputNode> inputPatternExceedsThreshold(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
 
-        return activeCount(inputPattern, initialParameters) >= initialParameters.getActivatedNodeSize();
+        return outputNodesActivated(inputPattern, initialParameters);
     }
 
     private int activeCount(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
@@ -62,6 +65,23 @@ public class BipartiteGraph {
             }
         }
         return activeCount;
+    }
+
+    private Set<OutputNode> outputNodesActivated(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
+        Set<OutputNode> outputNodes = edges.stream().map(Edge::getOutputNode).collect(Collectors.toSet());
+
+        Set<OutputNode> outputNodesActivated = new HashSet<>();
+        for (OutputNode outputNode : outputNodes) {
+            SetUniqueList<Edge> outputInputEdges = SetUniqueList.setUniqueList(edges.stream()
+                    .filter(e -> e.getOutputNode().getId() == outputNode.getId())
+                    .filter(e -> inputPattern.contains(e.getInputNode().getId()))
+                    .collect(Collectors.toList()));
+            double inboundWeightSum = sumWeights(outputInputEdges);
+            if (inboundWeightSum >= initialParameters.getWeightThreshold()) {
+                outputNodesActivated.add(outputNode);
+            }
+        }
+        return outputNodesActivated;
     }
 
     private double sumWeights(SetUniqueList<Edge> inputEdges) {

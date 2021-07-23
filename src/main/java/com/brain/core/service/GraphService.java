@@ -19,6 +19,8 @@ import java.util.stream.Collectors;
 @Service
 public class GraphService {
 
+    //TODO: Move this to a shared model that stores all results
+    private ResultsData resultsData;
     private Set<SetUniqueList<Integer>> activationPatterns;
     private InitialParameters initialParameters;
     private BipartiteGraph graph;
@@ -85,16 +87,16 @@ public class GraphService {
     public ResultsData triggerLearning(boolean isLtp) {
 
         ResultsData resultsData = new ResultsData();
-
         activationPatterns.forEach(ap -> {
 
-            int learningStep = isLtp ? learningService.ltpLearning(graph, ap, initialParameters)
-                    : learningService.misLearning(graph, ap, initialParameters);
-
-            int count = resultsData.getLearningStepCount().getOrDefault(learningStep, 0) + 1;
-            resultsData.getLearningStepCount().put(learningStep, count);
+            if (isLtp) {
+                learningService.ltpLearning(graph, ap, initialParameters, resultsData);
+            } else {
+                learningService.misLearning(graph, ap, initialParameters, resultsData);
+            }
         });
 
+        this.resultsData = resultsData;
         return resultsData;
     }
 
@@ -104,5 +106,9 @@ public class GraphService {
 
     public InitialParameters getInitialParameters() {
         return initialParameters;
+    }
+
+    public ResultsData getResultsData() {
+        return resultsData;
     }
 }

@@ -2,11 +2,14 @@ package com.brain.core.service;
 
 import com.brain.core.model.BipartiteGraph;
 import com.brain.core.model.Edge;
+import com.brain.core.model.OutputNode;
 import com.brain.core.rest.model.InitialParameters;
+import com.brain.core.rest.model.ResultsData;
 import org.apache.commons.collections4.list.SetUniqueList;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -15,10 +18,11 @@ public class LearningService {
     private Random random = new Random();
 
     // Long-Term Potentiation
-    public int ltpLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip) {
+    public void ltpLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, ResultsData resultsData) {
 
         int steps = 0;
-        while (!graph.inputPatternExceedsThreshold(ap, ip)) {
+        Set<OutputNode> outputNodesActivated;
+        while (!((outputNodesActivated = graph.inputPatternExceedsThreshold(ap, ip)).size() >= ip.getActivatedNodeSize())) {
             int index = random.nextInt(ap.size());
             SetUniqueList<Edge> outputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
                     .filter(e -> e.getInputNode().getId() == ap.get(index))
@@ -28,19 +32,23 @@ public class LearningService {
             steps++;
         }
 
-        //TODO: Include more details about output pattern that was activated
+        // Update the step count
+        int count = resultsData.getLearningStepCount().getOrDefault(steps, 0) + 1;
+        resultsData.getLearningStepCount().put(steps, count);
+
+        // Add the set of output nodes.
+        resultsData.addOutputNodeSet(outputNodesActivated);
 
         // Reset edge weights for the next iteration (maybe a better way to do this, do we even need input/output nodes)
         graph.resetEdgeWeights();
-
-        return steps;
     }
 
     // Multi-dendritic innervated spines
-    public int misLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip) {
+    public void misLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, ResultsData resultsData) {
 
         int steps = 0;
-        while (!graph.inputPatternExceedsThreshold(ap, ip)) {
+        Set<OutputNode> outputNodesActivated;
+        while (!((outputNodesActivated = graph.inputPatternExceedsThreshold(ap, ip)).size() >= ip.getActivatedNodeSize())) {
             int index = random.nextInt(ap.size());
             int index2 = random.nextInt(ap.size());
             while (index == index2) index2 = random.nextInt(ap.size());
@@ -59,10 +67,13 @@ public class LearningService {
             System.out.println("Finished step" + steps);
         }
 
-        //TODO: Include more details about output pattern that was activated
+        // Update the step count
+        int count = resultsData.getLearningStepCount().getOrDefault(steps, 0) + 1;
+        resultsData.getLearningStepCount().put(steps, count);
+
+        // Add the set of output nodes.
+        resultsData.addOutputNodeSet(outputNodesActivated);
 
         graph.resetEdgeWeights();
-
-        return steps;
     }
 }

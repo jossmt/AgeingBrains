@@ -61,4 +61,10 @@ public class RestApi {
         System.out.println(resultsData);
         return resultsData;
     }
+
+    @GetMapping("/results")
+    public @ResponseBody
+    ResultsData getResults() {
+        return graphService.getResultsData();
+    }
 }

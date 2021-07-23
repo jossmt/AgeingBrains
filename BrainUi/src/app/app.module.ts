@@ -9,10 +9,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { ResultsComponent } from './results/results.component';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResultsComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,12 +13,12 @@ export class AppService {
   }
 
   initiateGraph(data) {
-    return this.http.post(this.rootUrl + "/initiate",data,
+    return this.http.post(this.rootUrl + "/initiate", data,
       {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      });
   }
 
   getGraph() {
@@ -46,7 +46,15 @@ export class AppService {
   }
 
   triggerLearning(isLtp: boolean) {
-    return this.http.get(this.rootUrl + "/learning/start/" + isLtp , {
+    return this.http.get(this.rootUrl + "/learning/start/" + isLtp, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
+
+  getResults() {
+    return this.http.get(this.rootUrl + "/results", {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
