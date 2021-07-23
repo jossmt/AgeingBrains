@@ -1,0 +1,4 @@
+BrainUi/node_modules**
+build
+.gradle
+.idea
