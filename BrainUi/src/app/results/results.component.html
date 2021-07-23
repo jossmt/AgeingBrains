@@ -1,0 +1,32 @@
+<div class="results-container">
+  <h3>Extended Results</h3>
+
+  <h4>Learning Steps</h4>
+  <ul>
+    <ng-container *ngFor="let elem of stepResultsData">
+      <li>
+        {{elem}}
+      </li>
+    </ng-container>
+  </ul>
+
+  <h4>Count of Output Nodes Activated</h4>
+  <ul>
+    <ng-container *ngFor="let elem of activatedOutputNodeCount">
+      <li>
+        {{elem}}
+      </li>
+    </ng-container>
+  </ul>
+
+  <h4 class="mt-5">Output Nodes Activated</h4>
+  <ul>
+    <ng-container *ngFor="let elem of activatedOutputNodes">
+      <li>
+        <ng-container *ngFor="let subElem of elem">
+          {{subElem.id}}
+        </ng-container>
+      </li>
+    </ng-container>
+  </ul>
+</div>

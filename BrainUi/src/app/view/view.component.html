@@ -1,0 +1,172 @@
+<div class="graph container">
+
+  <h1 class="pt-3 pb-3">Ageing Brains Project</h1>
+
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="initialWeightForm">
+        <h3>Initial Parameters</h3>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="nodeSize">Node Size</label>
+            <input formControlName="nodeSize" type="text" class="form-control" id="nodeSize"
+                   placeholder="Number of input nodes...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="activatedNodeSize">Activated Node Size</label>
+            <input formControlName="activatedNodeSize" type="text" class="form-control" id="activatedNodeSize"
+                   placeholder="Number of activated input nodes...">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="weightDistributionType">Type of Weight Distribution</label>
+            <input formControlName="weightDistributionType" type="text" class="form-control" id="weightDistributionType"
+                   placeholder="NORMAL OR RANDOM">
+          </div>
+        </div>
+
+        <button *ngIf="initialWeightForm.valid" class="btn btn-primary" (click)="submit()">Generate Initial Graph and
+          Weights
+        </button>
+      </form>
+      <h3 class="mt-3">Threshold</h3>
+      <form [formGroup]="thresholdForm">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="weightThreshold">Weight Threshold</label>
+            <input [disabled]="nodes.length == 0" formControlName="weightThreshold" type="text" class="form-control"
+                   id="weightThreshold"
+                   placeholder="Weight Threshold (2.9 recommended)...">
+          </div>
+        </div>
+        <ng-container *ngIf="nodes.length > 0">
+          <button class="btn btn-primary" (click)="updateThreshold()">Update Threshold</button>
+        </ng-container>
+        <ng-container *ngIf="!nodes || nodes.length == 0">
+          <button style="opacity: 0.7" matTooltip="You must generate initial graph first!" matTooltipPosition="above"
+                  class="btn btn-primary">Update Threshold
+          </button>
+        </ng-container>
+      </form>
+    </div>
+    <div class="col">
+      <ng-container *ngIf="activationPatternDetails; else noPatterns">
+        <h3>Input Patterns: {{activationPatternDetails.count}} of Activation
+          Patterns: {{activationPatternDetails.countTotal}}</h3>
+        <h4>Ratio: {{activationPatternDetails.percentage}}</h4>
+      </ng-container>
+      <ng-template #noPatterns>
+        <h3>No Patterns Generated</h3>
+      </ng-template>
+      <ng-container *ngIf="thresholdSet">
+        <button class="btn btn-primary" (click)="generateActivationPatterns()">Generate
+          Activation Patterns
+        </button>
+      </ng-container>
+      <ng-container *ngIf="!thresholdSet">
+        <button style="opacity: 0.7" matTooltip="Must set threshold first!" matTooltipPosition="above"
+                class="btn btn-primary">Generate
+          Activation Patterns
+        </button>
+      </ng-container>
+
+      <div>
+        <h3>Learning Parameters</h3>
+        <div class="form-row">
+          <div class="form-group col">
+            <div class="form-check">
+              <input [disabled]="!activationPatternDetails" checked (click)="setLTP(true)" class="form-check-input"
+                     type="radio" name="flexRadioDefault"
+                     id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                LTP
+              </label>
+            </div>
+            <div class="form-check">
+              <input [disabled]="!activationPatternDetails" (click)="setLTP(false)" class="form-check-input"
+                     type="radio"
+                     name="flexRadioDefault"
+                     id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                MIS
+              </label>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="activationPatternDetails">
+          <button class="btn btn-primary" (click)="startLearning()">Start Learning</button>
+        </ng-container>
+        <ng-container *ngIf="!activationPatternDetails">
+          <button style="opacity: 0.7" matTooltip="Must generate activation patterns first!" matTooltipPosition="above"
+                  class="btn btn-primary" (click)="startLearning()">Start Learning
+          </button>
+        </ng-container>
+
+        <div *ngIf="!learningLoading">
+          <h3>Results</h3>
+          <ul>
+            <ng-container *ngFor="let elem of resultsData">
+              <li>
+                {{elem}}
+              </li>
+            </ng-container>
+          </ul>
+          <button class="btn btn-primary" routerLink="results">See more result details.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="loading">
+    Loading...
+  </div>
+  <ngx-graph *ngIf="!loading"
+             class="chart-container"
+             [view]="[10000, 10000]"
+             [showMiniMap]="true"
+             [links]="edges"
+             [nodes]="nodes"
+             layout="dagreCluster"
+             [layoutSettings]="{
+              nodePadding: 50,
+              edgePadding: 0,
+              rankPadding: 700
+              }">
+
+    <ng-template #linkTemplate let-link>
+      <svg>
+        <g class="edge">
+          <path class="line" stroke-width="2" marker-end="url(#arrow)"></path>
+          <text class="edge-label" text-anchor="middle">
+            <textPath
+              class="text-path"
+              [attr.href]="'#' + link.id"
+              [style.dominant-baseline]="link.dominantBaseline"
+              startOffset="50%">
+              {{link.label}}
+            </textPath>
+          </text>
+        </g>
+      </svg>
+    </ng-template>
+
+    <ng-template #nodeTemplate let-node>
+      <svg>
+        <g class="node">
+          <rect
+            [attr.width]="node.dimension.width"
+            [attr.height]="node.dimension.height"
+            [attr.fill]="node.data.color"/>
+          <text alignment-baseline="central" [attr.x]="10" [attr.y]="node.dimension.height / 2">
+            {{node.label}}
+          </text>
+        </g>
+      </svg>
+    </ng-template>
+  </ngx-graph>
+</div>
