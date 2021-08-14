@@ -45,8 +45,8 @@ export class AppService {
     });
   }
 
-  triggerLearning(isLtp: boolean) {
-    return this.http.get(this.rootUrl + "/learning/start/" + isLtp, {
+  triggerLearning(learningParams: any) {
+    return this.http.post(this.rootUrl + "/learning/start", learningParams, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

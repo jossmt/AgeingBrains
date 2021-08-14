@@ -50,21 +50,13 @@ public class BipartiteGraph {
         return outputNodesActivated(inputPattern, initialParameters);
     }
 
-    private int activeCount(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
-        Set<OutputNode> outputNodes = edges.stream().map(Edge::getOutputNode).collect(Collectors.toSet());
-
-        int activeCount = 0;
-        for (OutputNode outputNode : outputNodes) {
-            SetUniqueList<Edge> outputInputEdges = SetUniqueList.setUniqueList(edges.stream()
-                    .filter(e -> e.getOutputNode().getId() == outputNode.getId())
-                    .filter(e -> inputPattern.contains(e.getInputNode().getId()))
-                    .collect(Collectors.toList()));
-            double inboundWeightSum = sumWeights(outputInputEdges);
-            if (inboundWeightSum >= initialParameters.getWeightThreshold()) {
-                activeCount++;
-            }
-        }
-        return activeCount;
+    public boolean outputNodeExceedsThreshold(OutputNode outputNode, SetUniqueList<Integer> inputPattern, InitialParameters ip) {
+        SetUniqueList<Edge> outputInputEdges = SetUniqueList.setUniqueList(edges.stream()
+                .filter(e -> e.getOutputNode().getId() == outputNode.getId())
+                .filter(e -> inputPattern.contains(e.getInputNode().getId()))
+                .collect(Collectors.toList()));
+        double inboundWeightSum = sumWeights(outputInputEdges);
+        return inboundWeightSum >= ip.getWeightThreshold();
     }
 
     private Set<OutputNode> outputNodesActivated(SetUniqueList<Integer> inputPattern, InitialParameters initialParameters) {
@@ -72,12 +64,7 @@ public class BipartiteGraph {
 
         Set<OutputNode> outputNodesActivated = new HashSet<>();
         for (OutputNode outputNode : outputNodes) {
-            SetUniqueList<Edge> outputInputEdges = SetUniqueList.setUniqueList(edges.stream()
-                    .filter(e -> e.getOutputNode().getId() == outputNode.getId())
-                    .filter(e -> inputPattern.contains(e.getInputNode().getId()))
-                    .collect(Collectors.toList()));
-            double inboundWeightSum = sumWeights(outputInputEdges);
-            if (inboundWeightSum >= initialParameters.getWeightThreshold()) {
+            if (outputNodeExceedsThreshold(outputNode, inputPattern, initialParameters)) {
                 outputNodesActivated.add(outputNode);
             }
         }

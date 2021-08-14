@@ -10,9 +10,9 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class ViewComponent {
 
-  isLTP = true;
   initialWeightForm: FormGroup;
   thresholdForm: FormGroup;
+  learningParametersForm: FormGroup;
   graph: any;
   nodes = [];
   edges = [];
@@ -21,6 +21,9 @@ export class ViewComponent {
   loading = true;
   learningLoading = true;
   thresholdSet = false;
+
+  //learning parameters
+  youngLearning = true;
 
   constructor(private as: AppService,
               private fb: FormBuilder,
@@ -33,6 +36,13 @@ export class ViewComponent {
 
     this.thresholdForm = this.fb.group({
       weightThreshold: [0.43, Validators.required]
+    });
+
+    this.learningParametersForm = this.fb.group({
+      youngLearning: [this.youngLearning, Validators.required],
+      inputNodeSelection: ['HIGHEST', Validators.required],
+      firstEdgeSelection: ['HIGHEST', Validators.required],
+      secondEdgeSelection: ['HIGHEST', Validators.required]
     })
   }
 
@@ -40,8 +50,8 @@ export class ViewComponent {
     this.as.getGraph().subscribe(data => this.graph = data);
   }
 
-  setLTP(val: boolean) {
-    this.isLTP = val;
+  setYoungLearning(val: boolean) {
+    this.youngLearning = val;
   }
 
   submit() {
@@ -90,9 +100,13 @@ export class ViewComponent {
   }
 
   startLearning() {
+    this.learningParametersForm.patchValue({
+      youngLearning: this.youngLearning
+    });
     this.resultsData = [];
     this.learningLoading = true;
-    this.as.triggerLearning(this.isLTP).subscribe(data => {
+    console.log(this.learningParametersForm.getRawValue());
+    this.as.triggerLearning(this.learningParametersForm.getRawValue()).subscribe(data => {
       console.log(data);
       Object.keys(data['learningStepCount']).forEach(key => this.resultsData.push("Step:" + key + " Count: " + data['learningStepCount'][key]));
       this.learningLoading = false;

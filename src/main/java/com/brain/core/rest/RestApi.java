@@ -3,6 +3,7 @@ package com.brain.core.rest;
 import com.brain.core.model.BipartiteGraph;
 import com.brain.core.rest.model.ActivationPatternDetails;
 import com.brain.core.rest.model.InitialParameters;
+import com.brain.core.rest.model.LearningParameters;
 import com.brain.core.rest.model.ResultsData;
 import com.brain.core.service.GraphService;
 import com.brain.core.service.WeightService;
@@ -52,11 +53,11 @@ public class RestApi {
         graphService.getInitialParameters().setWeightThreshold(threshold);
     }
 
-    @GetMapping("/learning/start/{isLTP}")
+    @PostMapping("/learning/start")
     public @ResponseBody
-    ResultsData startLearning(@PathVariable("isLTP") boolean isLtpd) {
+    ResultsData startLearning(@RequestBody LearningParameters learningParameters) {
         System.out.println("Started learning");
-        ResultsData resultsData = graphService.triggerLearning(isLtpd);
+        ResultsData resultsData = graphService.triggerLearning(learningParameters);
         System.out.println("Finished learning");
         System.out.println(resultsData);
         return resultsData;

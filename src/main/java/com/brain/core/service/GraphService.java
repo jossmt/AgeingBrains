@@ -6,6 +6,7 @@ import com.brain.core.model.InputNode;
 import com.brain.core.model.OutputNode;
 import com.brain.core.rest.model.ActivationPatternDetails;
 import com.brain.core.rest.model.InitialParameters;
+import com.brain.core.rest.model.LearningParameters;
 import com.brain.core.rest.model.ResultsData;
 import org.apache.commons.collections4.list.SetUniqueList;
 import org.springframework.stereotype.Service;
@@ -84,11 +85,11 @@ public class GraphService {
         return activationPatternDetails;
     }
 
-    public ResultsData triggerLearning(boolean isLtp) {
+    public ResultsData triggerLearning(LearningParameters learningParameters) {
 
         ResultsData resultsData = new ResultsData();
         activationPatterns.forEach(ap -> {
-            learningService.learn(graph, ap, initialParameters, resultsData, isLtp);
+            learningService.learn(graph, ap, initialParameters, resultsData, learningParameters);
         });
 
         this.resultsData = resultsData;
