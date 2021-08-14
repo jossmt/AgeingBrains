@@ -29,7 +29,7 @@ public class LearningService {
             if (lp.isYoungLearning()) {
                 youngLearning(graph, ap, ip, lp);
             } else {
-                oldLearning(graph, ap, ip);
+                oldLearning(graph, ap, ip, lp);
             }
             steps++;
         }
@@ -50,22 +50,18 @@ public class LearningService {
         selectedEdge.setWeight(selectedEdge.getWeight() + ((1 - selectedEdge.getWeight()) / 2));
     }
 
-    private void oldLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip) {
+    private void oldLearning(BipartiteGraph graph, SetUniqueList<Integer> ap, InitialParameters ip, LearningParameters lp) {
         int index = random.nextInt(ap.size());
         int index2 = random.nextInt(ap.size());
         while (index == index2) index2 = random.nextInt(ap.size());
         final int index2Final = index2;
 
-        SetUniqueList<Edge> inputEdgesForRandomIndex = SetUniqueList.setUniqueList(graph.getEdges().stream()
-                .filter(e -> e.getInputNode().getId() == ap.get(index))
-                .filter(e -> !graph.outputNodeExceedsThreshold(e.getOutputNode(), ap, ip))
+        SetUniqueList<Edge> edges1 = getInputNodeOutboundEdges(graph, ap, lp);
+        SetUniqueList<Integer> apExcludingFirstIndex = SetUniqueList.setUniqueList(ap.stream().filter(apidx -> apidx != edges1.get(0).getInputNode().getId())
                 .collect(Collectors.toList()));
-        SetUniqueList<Edge> inputEdgesForRandomIndex2 = SetUniqueList.setUniqueList(graph.getEdges().stream()
-                .filter(e -> e.getInputNode().getId() == ap.get(index2Final))
-                .filter(e -> !graph.outputNodeExceedsThreshold(e.getOutputNode(), ap, ip))
-                .collect(Collectors.toList()));
-        Edge randomEdgeFromRandomInput = inputEdgesForRandomIndex.get(random.nextInt(inputEdgesForRandomIndex.size()));
-        Edge randomEdgeFromRandomInput2 = inputEdgesForRandomIndex2.get(random.nextInt(inputEdgesForRandomIndex2.size()));
+        SetUniqueList<Edge> edges2 = getInputNodeOutboundEdges(graph, apExcludingFirstIndex, lp);
+        Edge randomEdgeFromRandomInput = selectEdgeForInputNode(graph, ap, edges1, ip, lp.getFirstEdgeSelection());
+        Edge randomEdgeFromRandomInput2 = selectEdgeForInputNode(graph, ap, edges2, ip, lp.getSecondEdgeSelection());
         randomEdgeFromRandomInput.setWeight(randomEdgeFromRandomInput.getWeight() + randomEdgeFromRandomInput2.getWeight());
     }
 
